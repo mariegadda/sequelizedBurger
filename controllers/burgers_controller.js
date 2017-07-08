@@ -3,9 +3,6 @@ var router = express.Router();
 
 //imports the model, burger.js to use its database functions
 var db = require("../models");
-//var burger = require("../models/burger.js");
-
-//create all routes and set up logic within these routes where required
 
 router.get("/", function(req, res) {
   db.Burger.findAll({})
@@ -19,12 +16,16 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
+  var burger_name = req.body.name;
+  if (burger_name === "") {
+    console.log("You must enter a burger name!");
+  }else{
   db.Burger.create({
-    burger_name: req.body.name
+    burger_name: burger_name
   }).then(function(burgerData){
-    //res.json(burgerData);
     res.redirect("/");
   });
+  }
 });
 
 router.post("/:id", function(req, res) {
