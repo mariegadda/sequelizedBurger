@@ -13,7 +13,7 @@ Eat-da-Burger app using sequelize!
 
 ## View on Heroku
 
-https://dashboard.heroku.com/apps/limitless-island-68743
+https://limitless-island-68743.herokuapp.com/
 
 ## Install Locally
 
